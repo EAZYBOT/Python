@@ -1,5 +1,5 @@
 import re
-from  Pet import Pet
+from lab5.Pet import Pet
 
 
 class PetsManager:
@@ -20,7 +20,7 @@ class PetsManager:
         if not re.fullmatch("[A-ZА-Я][a-zа-я-]*", color):
             raise ValueError
 
-        if not re.fullmatch(r"\d{2}-\d{2}-\d{4}", birthday):
+        if not re.fullmatch(r"\d{2}.\d{2}.\d{4}", birthday):
             raise ValueError
 
         if not re.fullmatch("([A-ZА-Я][a-zа-я]* ){2}[A-ZА-Я][a-zа-я]*", owner):
