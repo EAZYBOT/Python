@@ -1,0 +1,32 @@
+    .error {
+        color: red;
+    }
+
+    .success {
+        color: green;
+    }
+
+form {
+    display: block;
+    width: 40%;
+}
+
+input {
+    width: 100%;
+    margin: 2% 0;
+}
+
+div.radio_box input {
+        width: min-content;
+    }
+
+input#remember {
+    width: initial;
+}
+
+input#submit {
+    display: block;
+    width: min-content;
+}
+
+

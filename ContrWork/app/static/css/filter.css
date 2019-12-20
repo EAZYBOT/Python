@@ -1,0 +1,17 @@
+.error {
+    color: red;
+    margin: 2% 0;
+}
+
+.success {
+    color: green;
+    margin: 2% 0;
+}
+
+.filter p {
+    margin: 0;
+}
+
+.filter input {
+    margin: 1% 0;
+}

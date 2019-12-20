@@ -1,0 +1,46 @@
+{% extends 'pages/login.html' %}
+
+{% block head %}
+    <link href="{{ url_for('static', filename='css/table.css')}}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+{% block title %}Отправка заявки{% endblock %}
+
+{% block title_page %}Отпрака заявки{% endblock %}
+
+{% block body %}
+
+{% for category, message in  get_flashed_messages(with_categories=true) %}
+<span class="{{ category }}">{{ message }}</span>
+{% endfor %}
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Ветеринар</th>
+        <th>Должность</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.second_name }} {{ employee.first_name }} {{ employee.middle_name }}</td>
+        <td>{{ employee.position.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<form action="" method="post">
+    {{ form.csrf_token() }}
+    {% for field in form if field.name != 'csrf_token'%}
+    {% if field.type != 'SubmitField' %}
+    {{ field.label() }}
+    {% endif %}
+    {{ field }}
+    {% for error in field.errors %}
+    {{ error }}
+    {% endfor %}
+    {% endfor %}
+
+
+</form>
+{% endblock %}

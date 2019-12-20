@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <link href="{{ url_for('static', filename='css/filter.css')}}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+{% block title %}Услуги{% endblock %}
+
+{% block title_page %}Услуги{% endblock %}
+
+{% block body %}
+    <div class="filter">
+        <h3>Фильтр</h3>
+
+        {% for category, message in  get_flashed_messages(with_categories=true) %}
+        <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+
+        <form action="" method="get">
+            <p>{{ form.name_service.label() }}</p>
+            <p>{{ form.name_service }}</p>
+            <p>Цена:</p>
+            <p>{{ form.min_cost }}-{{ form.max_cost }}</p>
+            <p>{{ form.accept }}</p>
+        </form>
+    </div>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Ветеринар</th>
+            <th>Должность</th>
+        </tr>
+        {% for service in services %}
+            <tr>
+                <td>{{ service.name }}</td>
+                <td>{{ service.cost }}</td>
+                <td>
+                    {{ service.employee.second_name }} {{service.employee.first_name}} {{ service.employee.middle_name }}
+                </td>
+                <td>{{ service.employee.position.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

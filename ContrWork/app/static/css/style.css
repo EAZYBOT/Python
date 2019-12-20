@@ -1,0 +1,101 @@
+#header hgroup {
+    text-align: center;
+}
+
+#header h2 {
+    margin: 2% 0 0;
+    font-size: 30pt;
+}
+
+#header h3 {
+    margin: 0 0 2%;
+    font-size: 20pt;
+}
+
+#header a {
+    color: black;
+    text-decoration: none;
+}
+
+.top {
+    border: 2px dotted black;
+}
+
+.top nav {
+    display: inherit;
+}
+
+.navigation {
+    list-style: none;
+    text-align: left;
+    background: white;
+    margin: 1%;
+    padding-left: 0;
+    font-size: 18pt;
+    display: inline-block;
+}
+
+.nav_user {
+    list-style: none;
+    text-align: right;
+    background: white;
+    margin: 1%;
+    padding-left: 0;
+    font-size: 18pt;
+    display: inline-block;
+    float: right;
+}
+
+#header nav li {
+    display: inline-block;
+}
+
+#header nav li:after {
+    content: "|";
+    display: inline-block;
+    vertical-align:top;
+    padding-left: 5px;
+}
+#header nav li:last-child:after {content: none;}
+#header nav a {
+    text-decoration: none;
+}
+
+body {
+    height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.content {
+    padding-bottom: 25px;
+    margin: 1%;
+    text-align: left;
+    font-size: 14pt;
+}
+
+.content h1 {
+    font-size: 30pt;
+}
+
+.content table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.content td, th {
+    border: 1px solid black;
+    padding-left: 1%;
+}
+
+#footer {
+    text-align: center;
+    margin: 1% 0;
+    width: 100%;
+}
+
+

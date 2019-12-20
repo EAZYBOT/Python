@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}Мои заявки{% endblock %}
+
+{% block title_page %}Мои заявки{% endblock %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Номер заявки</th>
+        <th>Ветеринар</th>
+        <th>Желаемая дата</th>
+        <th>Назначенаая дата</th>
+        <th>Статус</th>
+        <th>Создано</th>
+    </tr>
+    {% for tick in tickets %}
+    <tr>
+        <td>{{ tick.id }}</td>
+        <td>
+            {{ tick.employee.second_name }} {{tick.employee.first_name}} {{ tick.employee.middle_name }}
+        </td>
+        <td>{{ tick.desired_date }}</td>
+        <td>
+            {% if tick.result_date %}
+            {{ tick.result_date }}
+            {% else %}
+            -
+            {% endif %}
+        </td>
+        <td>{{ tick.status.name }}</td>
+        <td>{{ tick.created_on }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

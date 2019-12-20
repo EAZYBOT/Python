@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" >
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header id="header">
+        <hgroup>
+            <h2>{% block wet_title %}<a href="{{ url_for('index') }}">Ветеринарная клиника EAZY Clinic</a>{% endblock %}</h2>
+            <h3>{% block wet_tagline %}<a href="{{ url_for('index') }}">Друзья ближе, чем вы думаете!</a>{% endblock %}</h3>
+        </hgroup>
+
+        <div class="top">
+            {% block navigation %}
+                <nav>
+                    <ul class="navigation">
+                        <li><a href="{{ url_for('index') }}">Домашняя</a></li>
+                        <li><a href="{{ url_for('services') }}">Услуги</a></li>
+                        <li><a href="{{ url_for('about') }}">О нас</a></li>
+                        <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+                    </ul>
+                    {% block nav_user %}
+                    <ul class="nav_user">
+                        {% if current_user.is_authenticated %}
+                            <li><a href="{{ url_for('settings') }}">{{ current_user.username }}</a></li>
+                            <li><a href="{{ url_for('send_ticket') }}">Отправить заявку</a></li>
+                            <li><a href="{{ url_for('my_tickets') }}">Мои заявки</a></li>
+                            <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('login') }}">Вход</a></li>
+                            <li><a href="{{ url_for('registration') }}">Регистрация</a></li>
+                        {% endif %}
+                    </ul>
+                    {% endblock %}
+                </nav>
+            {% endblock %}
+        </div>
+
+    </header>
+
+    <section class="wrapper">
+        <div class="content">
+            <h1>{% block title_page %}{% endblock %}</h1>
+            {% block body %}{% endblock %}
+        </div>
+    </section>
+    <div id="footer">
+        {% block footer %}©EAZY_BOT все права не защищены.{% endblock %}
+    </div>
+</body>
+</html>
